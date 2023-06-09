@@ -1,0 +1,66 @@
+﻿<Window x:Class="QuanlyDancuDothi.wCatKhau"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:QuanlyDancuDothi"
+        mc:Ignorable="d"
+        Title="wCatKhau" Height="600" Width="730"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" UniformCornerRadius="15" Margin="25" materialDesign:ElevationAssist.Elevation="Dp4">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="btn_Exit" Grid.Row="0" Style="{StaticResource MaterialDesignIconButton}" materialDesign:RippleAssist.Feedback="LightPink" Foreground="LightCoral" materialDesign:ButtonAssist.CornerRadius="6" Height="40"
+                            Width="40" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="btn_Exit_Click" Margin="0 5 5 5">
+                <materialDesign:PackIcon Kind="CloseBoxesOutline" HorizontalAlignment="Center"/>
+            </Button>
+            <TextBlock Grid.Row="1" Text="KHAI BÁO CẮT KHẨU" FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="3"/>
+            <WrapPanel Grid.Row="2" HorizontalAlignment="Center" Margin="0,20,0,0" Width="630">
+                <TextBox x:Name="txt_hokhau_mahokhau" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="100" Background="Transparent" Margin="5 20 5 10"
+                                         materialDesign:HintAssist.Hint="Mã hộ khẩu" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" IsEnabled="True" />
+                <Button x:Name="btn_DienTT_HoKhau" Style="{StaticResource MaterialDesignFlatButton}" Width="auto" Margin="5 20 5 10" Click="btn_DienTT_HoKhau_Click">
+                    <materialDesign:PackIcon Kind="Upload"/>
+                </Button>
+                <TextBox x:Name="txt_hokhau_makschuho" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="220" Background="Transparent" Margin="5 20 5 10"
+                                         materialDesign:HintAssist.Hint="Khai sinh chủ hộ" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" IsEnabled="False" />
+                <TextBox x:Name="txt_hokhau_hotenchuho" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="220" Background="Transparent" Margin="5 20 5 10"
+                                         materialDesign:HintAssist.Hint="Họ tên chủ hộ" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" IsEnabled="False" />
+                <TextBox x:Name="txt_hokhau_hotennguoithamgia" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="220" Background="Transparent" Margin="5 0 5 10"
+                                         materialDesign:HintAssist.Hint="Họ tên người tham gia" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" IsEnabled="False" />
+                <TextBox x:Name="txt_hokhau_maksnguoithamgia" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="150" Background="Transparent" Margin="5 0 5 10"
+                                         materialDesign:HintAssist.Hint="Khai sinh người tham gia" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" />
+                <ComboBox x:Name="cmb_quanhe" Background="Transparent" Height="auto" Width="150" materialDesign:HintAssist.Hint="Quan hệ" BorderBrush="{DynamicResource MaterialDesignDivider}"
+                          FontSize="10" FontWeight="SemiBold" Margin="25 0 5 0"/>
+                <TextBox x:Name="txt_hokhau_diachi" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="560" Background="Transparent" Margin="5 0 5 10"
+                                         materialDesign:HintAssist.Hint="Địa chỉ" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" IsEnabled="False" />
+            </WrapPanel>
+            <DataGrid Grid.Row="3" Width="620" Margin="0 20" CellStyle="{DynamicResource DataGridCellStyle1}" RowStyle="{DynamicResource DataGridRowStyle1}" x:Name="dtg_Nguoithamgia" AutoGenerateColumns="False" CanUserAddRows="False" CanUserReorderColumns="False" GridLinesVisibility="None" SelectionChanged="dtg_Nguoithamgia_SelectionChanged">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Binding="{Binding HoTenKS}" Width="*" Header="Họ tên người tham gia" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding KhaiSinhNguoiThamGia}" Width="*" Header="Khai sinh người tham gia" IsReadOnly="True"/>
+                    <DataGridTextColumn Binding="{Binding QuanHeVoiChuHo}" Width="*" Header="Quan hệ với chủ hộ" IsReadOnly="True"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 20 60 20">
+                <Button x:Name="btn_catkhau" Style="{StaticResource MaterialDesignFlatAccentButton}" Grid.Row="1" materialDesign:ButtonAssist.CornerRadius="7" materialDesign:RippleAssist.Feedback="Salmon"
+                                    Foreground="{DynamicResource PrimaryHueDarkBrush}" Width="120" Height="35" HorizontalAlignment="Right" FontSize="13" Click="btn_catkhau_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="PersonRemove" VerticalAlignment="Center" Width="13" Height="13" Margin="0 1 8 0"/>
+                        <TextBlock Text="Cắt khẩu"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </materialDesign:Card>
+</Window>

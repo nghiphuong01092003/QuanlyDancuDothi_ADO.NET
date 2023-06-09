@@ -1,0 +1,62 @@
+﻿<Window x:Class="QuanlyDancuDothi.USER_DanhGia"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:QuanlyDancuDothi"
+        mc:Ignorable="d"
+        Title="USER_DanhGia" Height="750" Width="450"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    <materialDesign:Card UniformCornerRadius="15" Background="{DynamicResource MaterialDesignPaper}"
+                         Margin="25" materialDesign:ShadowAssist.ShadowDepth="Depth4">
+        <materialDesign:DialogHost CloseOnClickAway="True" x:Name="DialogHost">
+            <StackPanel>
+
+                <Button x:Name="btn_Exit" Style="{StaticResource MaterialDesignIconButton}" materialDesign:RippleAssist.Feedback="LightPink" Foreground="LightCoral" materialDesign:ButtonAssist.CornerRadius="6" Height="40"
+                            Width="40" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="btn_exit_Click" Margin="0 20 20 0">
+                    <materialDesign:PackIcon Kind="CloseBoxesOutline"/>
+                </Button>
+
+                <Image Margin="0 0 0 0" Source="/Images/copy_logo_MFIT.png" Height="100"/>
+
+                <TextBlock Margin="0 0 0 15" HorizontalAlignment="Center" FontSize="28"
+                           FontWeight="Bold" Text="THANK YOU"/>
+
+                <TextBlock Margin="0 0 0 15" FontSize="17" FontWeight="SemiBold" HorizontalAlignment="Center"
+                           Text="Hãy cho chúng tôi phản hồi của bạn"/>
+                <WrapPanel Margin="0 10 0 10">
+                    <TextBlock Margin="80 0 0 0" FontSize="15" Width="120"><Bold/><Run Text="Tổng quan"/></TextBlock>
+                    <materialDesign:RatingBar x:Name="rate_tongquan" Width="139"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Margin="80 0 0 10" FontSize="15" Width="120"><Bold/><Run Text="Thuận tiện"/></TextBlock>
+                    <materialDesign:RatingBar x:Name="rate_thuantien" Width="139"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Margin="80 0 0 10" FontSize="15" Width="120"><Bold/><Run Text="Dễ dàng"/></TextBlock>
+                    <materialDesign:RatingBar x:Name="rate_dedang" Width="139"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Margin="80 0 0 10" FontSize="15" Width="120"><Bold/><Run Text="Chính xác"/></TextBlock>
+                    <materialDesign:RatingBar x:Name="rate_chinhxac" Width="139"/>
+                </WrapPanel>
+                <WrapPanel>
+                    <TextBlock Margin="80 0 0 10" FontSize="15" Width="120"><Bold/><Run Text="Trực quan"/></TextBlock>
+                    <materialDesign:RatingBar x:Name="rate_trucquan" Width="139"/>
+                </WrapPanel>
+                <TextBox Margin="0 25 0 0" x:Name="txtPhanhoi" Width="300" FontSize="18"
+                         materialDesign:HintAssist.Hint="Phản hồi của bạn" BorderThickness="2"
+                         BorderBrush="{DynamicResource MaterialDesignDivider}"
+                         Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="131"/>
+                <Button Margin="0 25 0 0" x:Name="btn_phanhoi" Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                        materialDesign:ShadowAssist.ShadowDepth="Depth0" Height="53" Width="300"
+                        materialDesign:ButtonAssist.CornerRadius="10" FontSize="18" Content="GỬI PHẢN HỒI" Click="btn_phanhoi_Click" />
+            </StackPanel>
+        </materialDesign:DialogHost>
+    </materialDesign:Card>
+</Window>

@@ -1,0 +1,82 @@
+﻿<Window x:Class="QuanlyDancuDothi.wGiayDangKiKetHon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:QuanlyDancuDothi"
+        mc:Ignorable="d"
+        Title="wGiayDangKiKetHon" Height="520" Width="700"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen">
+    <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" UniformCornerRadius="15" Margin="25" materialDesign:ElevationAssist.Elevation="Dp4">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Button x:Name="btn_Exit" Grid.Row="0" Style="{StaticResource MaterialDesignIconButton}" materialDesign:RippleAssist.Feedback="LightPink" Foreground="LightCoral" materialDesign:ButtonAssist.CornerRadius="6" Height="40"
+                            Width="40" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="btn_Exit_Click" Margin="0 5 5 5">
+                <materialDesign:PackIcon Kind="CloseBoxesOutline" HorizontalAlignment="Center"/>
+            </Button>
+            <TextBlock Grid.Row="1" Text="ĐĂNG KÍ KẾT HÔN" FontSize="30" HorizontalAlignment="Center" FontWeight="Bold" Grid.ColumnSpan="3"/>
+            <WrapPanel Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0 40 0 0" Width="600">
+                <TextBox x:Name="txt_kethon_makh" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="100" Background="Transparent" Margin="5 0 5 10"
+                                         materialDesign:HintAssist.Hint="Mã giấy CNKH" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" IsEnabled="False" />
+
+                <TextBox x:Name="txt_kethon_hotenvo" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="200" Background="Transparent" Margin="5 0 5 10"
+                                         materialDesign:HintAssist.Hint="Họ và tên vợ" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" IsEnabled="False" />
+                <TextBox x:Name="txt_kethon_gtttvo" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="179" Background="Transparent" Margin="5 0 5 10"
+                                         materialDesign:HintAssist.Hint="Giấy tờ tùy thân của vợ" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" />
+                <Button x:Name="btn_DienTT_Vo" Style="{StaticResource MaterialDesignFlatButton}" Width="auto" Click="btn_DienTT_Vo_Click">
+                    <materialDesign:PackIcon Kind="Upload"/>
+                </Button>
+                <DatePicker x:Name="dtp_kethon_ngaysinhvo" Style="{StaticResource MaterialDesignOutlinedDatePicker}" Margin="5 0 5 10" materialDesign:HintAssist.Hint="Ngày sinh vợ" Width="150"
+                                            BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" Background="Transparent" IsEnabled="False">
+                </DatePicker>
+                <TextBox x:Name="txt_kethon_dantocvo" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="100" Background="Transparent" Margin="5 0 5 10"
+                                         materialDesign:HintAssist.Hint="Dân tộc vợ" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" IsEnabled="False" />
+                <TextBox x:Name="txt_kethon_quoctichvo" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="100" Background="Transparent" Margin="5 0 5 10"
+                                         materialDesign:HintAssist.Hint="Quốc tịch vợ" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" IsEnabled="False" />
+                <TextBox x:Name="txt_kethon_noicutruvo" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="150" Background="Transparent" Margin="5 0 5 10"
+                                         materialDesign:HintAssist.Hint="Nơi cư trú của vợ" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" IsEnabled="False" />
+                <TextBox x:Name="txt_kethon_hotenchong" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="200" Background="Transparent" Margin="5 0 5 10"
+                                         materialDesign:HintAssist.Hint="Họ và tên chồng" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" IsEnabled="False" />
+                <TextBox x:Name="txt_kethon_gtttchong" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="150" Background="Transparent" Margin="5 0 5 10"
+                                         materialDesign:HintAssist.Hint="Giấy tờ tùy thân của chồng" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" />
+                <Button x:Name="btn_DienTT_Chong" Style="{StaticResource MaterialDesignFlatButton}" Width="auto" Click="btn_DienTT_Chong_Click">
+                    <materialDesign:PackIcon Kind="Upload"/>
+                </Button>
+                <DatePicker x:Name="dtp_kethon_ngaysinhchong" Style="{StaticResource MaterialDesignOutlinedDatePicker}" Margin="5 0 5 10" materialDesign:HintAssist.Hint="Ngày sinh chồng" Width="150"
+                                            BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" Background="Transparent" IsEnabled="False">
+                </DatePicker>
+                <TextBox x:Name="txt_kethon_dantocchong" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="100" Background="Transparent" Margin="5 0 5 10"
+                                         materialDesign:HintAssist.Hint="Dân tộc chồng" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" IsEnabled="False" />
+                <TextBox x:Name="txt_kethon_quoctichchong" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="100" Background="Transparent" Margin="5 0 5 10"
+                                         materialDesign:HintAssist.Hint="Quốc tịch chồng" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" IsEnabled="False" />
+                <TextBox x:Name="txt_kethon_noicutruchong" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="150" Background="Transparent" Margin="5 0 5 10"
+                                         materialDesign:HintAssist.Hint="Nơi cư trú của chồng" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" IsEnabled="False" />
+                <TextBox x:Name="txt_kethon_noidkkethon" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="auto" Width="100" Background="Transparent" Margin="5 0 5 10"
+                                         materialDesign:HintAssist.Hint="Nơi đăng kí kết hôn" BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" />
+                <DatePicker x:Name="dtp_kethon_ngaydkkethon" Style="{StaticResource MaterialDesignOutlinedDatePicker}" Margin="5 0 5 10" materialDesign:HintAssist.Hint="Ngày đăng kí kết hôn" Width="100"
+                                            BorderThickness="1" BorderBrush="{DynamicResource MaterialDesignDivider}" FontSize="10" FontWeight="SemiBold" Background="Transparent">
+                </DatePicker>
+            </WrapPanel>
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 60 40">
+                <Button x:Name="btn_Them_ThongTin" Style="{StaticResource MaterialDesignFlatAccentButton}" Grid.Row="1" materialDesign:ButtonAssist.CornerRadius="7" materialDesign:RippleAssist.Feedback="Salmon"
+                                    Foreground="{DynamicResource PrimaryHueDarkBrush}" Width="100" Height="35" HorizontalAlignment="Right" FontSize="13" Click="btn_Them_ThongTin_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Plus" VerticalAlignment="Center" Width="13" Height="13" Margin="0 1 8 0"/>
+                        <TextBlock Text="Đăng kí"/>
+
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </materialDesign:Card>
+</Window>

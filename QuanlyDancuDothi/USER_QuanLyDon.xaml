@@ -1,0 +1,177 @@
+﻿<Window x:Class="QuanlyDancuDothi.USER_QuanLyDon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:QuanlyDancuDothi"
+        mc:Ignorable="d"
+        Title="User_QuanLyDon" Height="750" Width="1140"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{x:Null}"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen" MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+    </Window.Resources>
+
+    <materialDesign:Card Background="{DynamicResource MaterialDesignPaper}" UniformCornerRadius="15" Margin="25" materialDesign:ElevationAssist.Elevation="Dp4">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="190"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Height="700" CornerRadius="15 0 0 15" Background="{DynamicResource MaterialDesignLightSeparatorBackground}">
+                <StackPanel Margin="15">
+                    <WrapPanel Margin="0 10 5 60" HorizontalAlignment="Center">
+                        <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/Images/copy_logo_MFIT.png" Width="30" />
+                        <TextBlock Text="Công dân" FontSize="20" FontWeight="Bold" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10 0 0 0"/>
+                    </WrapPanel>
+                    <Button x:Name="btn_User_TrangChu" Style="{StaticResource MaterialDesignFlatButton}" materialDesign:ButtonAssist.CornerRadius="6" Width="auto"
+                            Height="35" materialDesign:RippleAssist.Feedback="White" Margin="0 0 0 15" Click="btn_User_TrangChu_Click">
+                        <WrapPanel Width="120">
+                            <materialDesign:PackIcon Kind="Home" VerticalAlignment="Center" Margin="0 0 20 0"/>
+                            <TextBlock Text="Trang chủ"/>
+                        </WrapPanel>
+                    </Button>
+                    <Button x:Name="btn_User_CongDan" Style="{StaticResource MaterialDesignFlatButton}" materialDesign:ButtonAssist.CornerRadius="6" Width="auto"
+                            Height="35" materialDesign:RippleAssist.Feedback="White" Margin="0 0 0 15" Click="btn_User_CongDan_Click">
+                        <WrapPanel Width="120">
+                            <materialDesign:PackIcon Kind="People" VerticalAlignment="Center" Margin="0 0 20 0"/>
+                            <TextBlock Text="Công dân"/>
+                        </WrapPanel>
+                    </Button>
+                    <Button x:Name="btn_User_QuanLyDon" Style="{StaticResource MaterialDesignFlatButton}" materialDesign:ButtonAssist.CornerRadius="6" Width="auto"
+                            Height="35" materialDesign:RippleAssist.Feedback="White" Margin="0 0 0 15">
+                        <WrapPanel Width="120">
+                            <materialDesign:PackIcon Kind="FolderMedia" VerticalAlignment="Center" Margin="0 0 20 0"/>
+                            <TextBlock Text="Đăng ký đơn"/>
+                        </WrapPanel>
+                    </Button>
+                    <Button x:Name="btn_danhgia" Style="{StaticResource MaterialDesignFlatButton}" materialDesign:ButtonAssist.CornerRadius="6" Width="auto"
+                            Height="35" materialDesign:RippleAssist.Feedback="White" Margin="0 0 0 15" Click="btn_danhgia_Click">
+                        <WrapPanel Width="120">
+                            <materialDesign:PackIcon Kind="RateReview" VerticalAlignment="Center" Margin="0 0 20 0"/>
+                            <TextBlock Text="Đánh giá"/>
+                        </WrapPanel>
+                    </Button>
+                    <StackPanel Orientation="Horizontal" Margin="10 0 10 15" VerticalAlignment="Center" Width="auto" Height="35">
+                        <materialDesign:PackIcon Kind="MoonAndStars" VerticalAlignment="Center" Margin="0 0 10 0"/>
+                        <TextBlock VerticalAlignment="Center" Text="Chế độ tối" FontWeight="SemiBold"/>
+                        <ToggleButton Cursor="Hand" ToolTip="Bật" Margin="12 0 8 0"
+                                      x:Name="themeToggle" IsChecked="{Binding IsDarkTheme}"
+                                      Click="toggleTheme">
+                        </ToggleButton>
+                    </StackPanel>
+
+                    <materialDesign:ColorZone Mode="Light" Background="AliceBlue" CornerRadius="15" Padding="25 0" Margin="0 170 0 0">
+                        <StackPanel>
+                            <Image RenderOptions.BitmapScalingMode="HighQuality" Source="/Images/copy_logo_MFIT.png" Margin="0 -60 0 0" Height="100" Width="100" HorizontalAlignment="Center"/>
+                            <TextBlock Foreground="DodgerBlue" FontSize="11" FontWeight="SemiBold" TextAlignment="Center"> Nâng cấp  <Bold FontWeight="Heavy">PRO</Bold> để <LineBreak/>trải nghiệm tốt hơn</TextBlock>
+                            <Button Style="{StaticResource MaterialDesignFlatMidBgButton}" materialDesign:ElevationAssist.Elevation="Dp0" Height="28" materialDesign:ButtonAssist.CornerRadius="6"
+                                    FontSize="11" Content="Nâng cấp" Margin="0 20 0 25"/>
+                        </StackPanel>
+                    </materialDesign:ColorZone>
+                </StackPanel>
+            </Border>
+            <Grid Grid.Column="1" Margin="30 12 0 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <DockPanel Grid.Row="0" Margin="0 12 5 0">
+                    <Button x:Name="btn_Exit" Style="{StaticResource MaterialDesignIconButton}" materialDesign:RippleAssist.Feedback="LightPink" Foreground="LightCoral" materialDesign:ButtonAssist.CornerRadius="6" Height="40"
+                            Width="40" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="btn_Exit_Click">
+                        <materialDesign:PackIcon Kind="CloseBoxesOutline"/>
+                    </Button>
+                    <Button x:Name="btn_LogOut" Style="{StaticResource MaterialDesignIconButton}" materialDesign:RippleAssist.Feedback="LightPink" Foreground="LightCoral" materialDesign:ButtonAssist.CornerRadius="6" Height="40"
+                            Width="40" DockPanel.Dock="Right" HorizontalAlignment="Right" Click="btn_LogOut_Click">
+                        <materialDesign:PackIcon Kind="LogoutVariant"/>
+                    </Button>
+                    <TextBlock x:Name="txt_NgayThang" Foreground="SlateGray" FontSize="12" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Right" DockPanel.Dock="Right" Margin="0 0 20 0"/>
+                </DockPanel>
+                <TextBlock Grid.Row="1" Text="Đăng ký đơn từ" FontSize="32" FontWeight="SemiBold" Margin="20 0 0 0"/>
+                <TabControl Grid.Row="2" IsSynchronizedWithCurrentItem="True" Style="{StaticResource MaterialDesignUniformTabControl}" Margin="0 5 10 5">
+                    <TabItem Header="Các thủ tục đăng kí" Width="auto" Height="45">
+                        <ScrollViewer VerticalScrollBarVisibility="Visible" Style="{StaticResource MaterialDesignScrollViewer}">
+                            <Grid HorizontalAlignment="Center" Height="auto">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Button x:Name="btn_giaydkkh" Style="{StaticResource MaterialDesignFlatButton}" Grid.Column="0" Width="200" Height="200" VerticalAlignment="Top" materialDesign:ButtonAssist.CornerRadius="15"
+                                    Margin="20 20 20 0" BorderBrush="Salmon" BorderThickness="2" Background="Transparent" materialDesign:RippleAssist.Feedback="Salmon" Click="btn_giaydkkh_Click">
+                                    <StackPanel Width="150" Height="150">
+                                        <materialDesign:PackIcon Kind="LoveLetter" Width="100" Height="100" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Đăng kí kết hôn" FontSize="20" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="btn_donlyhon" Style="{StaticResource MaterialDesignFlatButton}" Grid.Column="0" Width="200" Height="200" VerticalAlignment="Top" materialDesign:ButtonAssist.CornerRadius="15"
+                                    Margin="20 240 20 20" BorderBrush="Salmon" BorderThickness="2" Background="Transparent" materialDesign:RippleAssist.Feedback="Salmon" Click="btn_donlyhon_Click">
+                                    <StackPanel Width="170" Height="150">
+                                        <materialDesign:PackIcon Kind="HeartBroken" Width="100" Height="100" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Đăng kí ly hôn" FontSize="20" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="btn_hokhau" Style="{StaticResource MaterialDesignFlatButton}" Grid.Column="0" Width="200" Height="200" VerticalAlignment="Top" materialDesign:ButtonAssist.CornerRadius="15"
+                                    Margin="20 460 20 0" BorderBrush="Salmon" BorderThickness="2" Background="Transparent" materialDesign:RippleAssist.Feedback="Salmon" Click="btn_hokhau_Click">
+                                    <StackPanel Width="170" Height="150">
+                                        <materialDesign:PackIcon Kind="HouseAddOutline" Width="100" Height="100" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Đăng kí hộ khẩu" FontSize="20" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="btn_KhaiSinh" Style="{StaticResource MaterialDesignFlatButton}" Grid.Column="1" Width="200" Height="200" VerticalAlignment="Top" materialDesign:ButtonAssist.CornerRadius="15"
+                                    Margin="20 20 20 0" BorderBrush="Salmon" BorderThickness="2" Background="Transparent" materialDesign:RippleAssist.Feedback="Salmon" Click="btn_KhaiSinh_Click">
+                                    <StackPanel Width="170" Height="150">
+                                        <materialDesign:PackIcon Kind="BabyFaceOutline" Width="100" Height="100" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Đăng kí khai sinh" FontSize="20" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="btn_GiayChungTu" Style="{StaticResource MaterialDesignFlatButton}" Grid.Column="1" Width="200" Height="200" VerticalAlignment="Top" materialDesign:ButtonAssist.CornerRadius="15"
+                                    Margin="20 240 20 20" BorderBrush="Salmon" BorderThickness="2" Background="Transparent" materialDesign:RippleAssist.Feedback="Salmon" Click="btn_GiayChungTu_Click">
+                                    <StackPanel Width="170" Height="150">
+                                        <materialDesign:PackIcon Kind="EmojiDeadOutline" Width="100" Height="100" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Đăng kí khai tử" FontSize="20" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="btn_ThemNguoi" Style="{StaticResource MaterialDesignFlatButton}" Grid.Column="1" Width="200" Height="200" VerticalAlignment="Top" materialDesign:ButtonAssist.CornerRadius="15"
+                                    Margin="20 460 20 20" BorderBrush="Salmon" BorderThickness="2" Background="Transparent" materialDesign:RippleAssist.Feedback="Salmon" Click="btn_ThemNguoi_Click">
+                                    <StackPanel Width="170" Height="150">
+                                        <materialDesign:PackIcon Kind="PersonAddOutline" Width="100" Height="100" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Thêm người vào hộ khẩu" FontSize="19" HorizontalAlignment="Center" TextWrapping="Wrap" TextAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="btn_tamtru" Style="{StaticResource MaterialDesignFlatButton}" Grid.Column="2" Width="200" Height="200" VerticalAlignment="Top" materialDesign:ButtonAssist.CornerRadius="15"
+                                    Margin="20 20 20 0" BorderBrush="Salmon" BorderThickness="2" Background="Transparent" materialDesign:RippleAssist.Feedback="Salmon" Click="btn_tamtru_Click">
+                                    <StackPanel Width="170" Height="150">
+                                        <materialDesign:PackIcon Kind="HouseAdd" Width="100" Height="100" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Đăng kí tạm trú" FontSize="20" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="btn_tamvang" Style="{StaticResource MaterialDesignFlatButton}" Grid.Column="2" Width="200" Height="200" VerticalAlignment="Top" materialDesign:ButtonAssist.CornerRadius="15"
+                                    Margin="20 240 20 20" BorderBrush="Salmon" BorderThickness="2" Background="Transparent" materialDesign:RippleAssist.Feedback="Salmon" Click="btn_tamvang_Click">
+                                    <StackPanel Width="170" Height="150">
+                                        <materialDesign:PackIcon Kind="HouseMinus" Width="100" Height="100" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Đăng kí tạm vắng" FontSize="20" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="btn_catkhau" Style="{StaticResource MaterialDesignFlatButton}" Grid.Column="2" Width="200" Height="200" VerticalAlignment="Top" materialDesign:ButtonAssist.CornerRadius="15"
+                                    Margin="20 460 20 20" BorderBrush="Salmon" BorderThickness="2" Background="Transparent" materialDesign:RippleAssist.Feedback="Salmon" Click="btn_catkhau_Click">
+                                    <StackPanel Width="170" Height="150">
+                                        <materialDesign:PackIcon Kind="PersonRemoveOutline" Width="100" Height="100" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="Cắt khẩu" FontSize="20" HorizontalAlignment="Center"/>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                        </ScrollViewer>
+                    </TabItem>
+                </TabControl>
+            </Grid>
+        </Grid>
+    </materialDesign:Card>
+</Window>

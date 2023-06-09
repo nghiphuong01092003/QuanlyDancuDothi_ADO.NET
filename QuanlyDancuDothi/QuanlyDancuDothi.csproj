@@ -1,0 +1,55 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\11525709_4776016.jpg" />
+    <None Remove="Images\avatar.jpg" />
+    <None Remove="Images\Bản sao của logo_MFIT.png" />
+    <None Remove="Images\copy_logo_MFIT.png" />
+    <None Remove="Images\Don_Tam_tru.jpg" />
+    <None Remove="Images\Don_Tam_vang.jpg" />
+    <None Remove="Images\Giay_Dang_ki_Ket_hon.jpg" />
+    <None Remove="Images\Screenshot_20221028_025259.png" />
+    <None Remove="Images\z4319467092281_f76b63e068b3d1d004d4aec584b11354.jpg" />
+    <None Remove="Images\z4319467262086_24c1378e238ee0c2785f08de94daf92f.jpg" />
+    <None Remove="Images\z4319467317277_7ac8949225fd2974b5837621b7d2b439.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LiveCharts.Wpf" Version="0.9.7" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.8.0" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\11525709_4776016.jpg" />
+    <Resource Include="Images\avatar.jpg" />
+    <Resource Include="Images\copy_logo_MFIT.png" />
+    <Resource Include="Images\Don_Tam_tru.jpg" />
+    <Resource Include="Images\Don_Tam_vang.jpg" />
+    <Resource Include="Images\Giay_Dang_ki_Ket_hon.jpg" />
+    <Resource Include="Images\Screenshot_20221028_025259.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+</Project>
